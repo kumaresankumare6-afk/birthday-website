@@ -1,0 +1,559 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday My Love 💛</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, serif;
+    background: #fffbea;
+    color: #795916;
+    overflow-x: hidden;
+}
+
+/* LOGIN PAGE */
+#loginPage {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #fff4b0, #ffdc65);
+}
+
+.login-box {
+    background: white;
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    width: 90%;
+    max-width: 380px;
+    box-shadow: 0 10px 35px #c49a3040;
+}
+
+.login-box h1 {
+    margin: 15px 0;
+    color: #bd8b13;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    border: 1px solid #e9c75a;
+    border-radius: 10px;
+}
+
+button {
+    background: #ffd84d;
+    border: none;
+    padding: 13px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    color: #664b10;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: .3s;
+}
+
+button:hover {
+    transform: scale(1.06);
+    background: #f4c32c;
+}
+
+#loginPage button {
+    width: 100%;
+}
+
+#error {
+    color: red;
+    margin-top: 10px;
+}
+
+/* MAIN WEBSITE */
+#website {
+    display: none;
+}
+
+nav {
+    background: #fff4bd;
+    padding: 20px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav a {
+    text-decoration: none;
+    color: #805d12;
+    margin: 12px;
+}
+
+/* HOME */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(#fff8d7, #fffbea);
+}
+
+.hero img {
+    width: 230px;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 8px solid #ffe68a;
+    animation: float 3s infinite ease-in-out;
+}
+
+.hero h1 {
+    font-size: 45px;
+    margin-top: 25px;
+    color: #c18a0b;
+}
+
+.hero p {
+    margin-top: 15px;
+    font-size: 19px;
+    line-height: 1.7;
+}
+
+/* SECTIONS */
+section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #bd8b13;
+    font-size: 35px;
+    margin-bottom: 30px;
+}
+
+/* LETTER */
+.letter {
+    max-width: 750px;
+    margin: auto;
+    padding: 40px;
+    background: #fff7d5;
+    border-radius: 25px;
+    line-height: 2;
+    font-size: 19px;
+    box-shadow: 0 10px 30px #c9a44325;
+    animation: fadeIn 2s;
+}
+
+/* GALLERY */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.gallery img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 18px;
+    border: 6px solid #ffedaa;
+    transition: .4s;
+}
+
+.gallery img:hover {
+    transform: scale(1.06) rotate(2deg);
+}
+
+/* FINAL SURPRISE */
+.final {
+    background: #fff1b5;
+    padding: 70px 20px;
+}
+
+.final h2 {
+    font-size: 40px;
+}
+
+/* HEART ANIMATION */
+.heart {
+    position: fixed;
+    bottom: -30px;
+    color: #f3c62d;
+    font-size: 25px;
+    pointer-events: none;
+    animation: rise 6s linear forwards;
+    z-index: 20;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes float {
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media(max-width:650px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 7px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN PAGE -->
+<div id="loginPage">
+    <div class="login-box">
+        <h1>💛 My Love 💛</h1>
+        <p>A special surprise is waiting for you!</p>
+
+        <input type="text" id="username"
+        placeholder="Enter Username">
+
+        <input type="password" id="password"
+        placeholder="Enter Password">
+
+        <button onclick="login()">
+            Unlock My Surprise 💛
+        </button>
+
+        <p id="error"></p>
+    </div>
+</div>
+
+<!-- MAIN WEBSITE -->
+<div id="website">
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#letter">Birthday Letter</a>
+    <a href="#memories">Memories</a>
+    <a href="#surprise">Surprise</a>
+</nav>
+
+<!-- HOME PAGE -->
+<div class="hero" id="home">
+
+    <img src="img/home.jpeg" alt="My Love">
+
+    <h1>Happy Birthday My Love! 💛</h1>
+
+    <p>
+        You are my happiness, my favourite person,
+        and my beautiful reason to smile every day.
+        <br>
+        Today is your special day! 🌻
+    </p
+    <a href="#letter">
+        <button>Read My Letter 💌</button>
+    </a>
+
+</div>
+
+<!-- BIRTHDAY LETTER -->
+<section id="letter">
+
+    <h2>💌 A Letter From My Heart</h2>
+
+    <div class="letter">
+
+        My Dearest Love 💛,
+
+        <br><br>
+
+        Happy Birthday to the most special person
+        in my life!
+
+        <br><br>
+
+        Happy Birthday, My Love Kavitha (Adhani)! 🌙💛
+
+        Last year namma beach-la birthday celebrate pannom la… nyabagam irukka? 🥺 Andha naal, andha
+        moments, un kooda spend panna andha beautiful time… ellame enakku innum kannu munnadiye 
+        irukku. Indha year un birthday-ku un kooda irukka mudiyala nu ninaikkumbodhu romba kashtama 
+        irukku. I miss those days so much.
+
+        <br><br>
+
+        Naan unakku vaangi kudutha pudavai innum vechirukkiya? Enakku theriyala… irundha, please, oru time
+        achum adha wear pannu. Andha pudavai kooda enakku oru beautiful memory dhaan. Andha 
+        pudavaiyoda bangles-um pottukko. Unna appadi paakkanum nu romba aasaiya irukku. ❤️
+
+        <br><br>
+
+        Nee ippo enna mood-la irukka nu enakku theriyala. Eppovume enna pidikkama poiducha nu kooda
+        enakku theriyala. Nee enna panra, enga irukka, eppadi irukka… edhuvume enakku theriyadhu. But one 
+        panra, enga irukka, eppadi iruk ka… edhuvume enakku theriyadhu. But one
+
+        <br><br>
+
+        Every day, every moment, somehow my thoughts come back to you. Unna pathi yosikkama irukka
+        mudiyala. Namma memories, un smile, un eyes, namma pesuna conversations… ellame en manasula irukku
+        
+
+        <br><br>
+
+        I always love you, Kavitha (Adhani). 🌙💛
+
+        <br><br>
+
+        Eppovume adhe dhaan solven. Unakkaga naan eppovume wait pannittu iruppen. En life-la unakku
+        irundha place-ah vera yaaralayum replace panna mudiyadhu. Because my love for you was pure, and
+        what I felt for you was always genuine.
+
+        <br><br>
+
+        Enakku unna kitta endha expectation-um illa. Un birthday-la nee happy-ah irukkanum, un face-la
+        eppovume smile irukkanum. Adhu dhaan enakku mukkiyam.
+
+        <br><br>
+
+        Aana en manasula oru chinna aasai irukku… unna innoru muraiyaavadhu paakkanum, konjam neram
+        un kooda pesanum. Namma pazhaya memories pathi pesanum. Un voice-ah oru murai kekkanum. 
+        Adhukku en manasu romba naala aasai padudhu.
+
+        <br><br>
+
+        <h2>don't know whether I'll ever get that chance, but that little hope is still there in my heart.
+</h2> 
+        <h3>Once again, Happy Birthday, My Love! 🎂❤️</h3>
+
+        May your life always be filled with happiness, love and beautiful moments.
+
+        <h4>LOVE YOU & I MISS YOU A LOT, KAVITHA (ADHANI). 🌙💛</h4> 
+
+        No matter how far you are, you'll always remain a beautiful part of my life.
+        
+        <h1>in my heart. ❤️</h1> 
+
+        <strong>
+            Happy Birthday, My Love! 💛🌻
+        </strong>
+
+        <br><br>
+
+        Forever Yours 💛
+
+    </div>
+
+</section>
+
+<!-- MEMORIES GALLERY -->
+<section id="memories">
+
+    <h2>📸 Our Beautiful Memories</h2>
+
+    <p>Every picture tells a beautiful story 💛</p>
+
+    <br><br>
+
+    <div class="gallery">
+
+        <img src="0.jpeg">
+
+        <img src="1.jpeg">
+
+        <img src="2.jpeg">
+
+        <img src="3.jpeg">
+
+        <img src="4.jpeg">
+
+        <img src="5.jpeg">
+
+        <img src="6.jpeg">
+
+        <img src="7.jpeg">
+
+        <img src="8.jpeg">
+
+        <img src="9.jpeg">
+
+        <img src="10.jpeg">
+
+        <img src="11.jpeg">
+
+        <img src="12.jpeg">
+
+        <img src="13.jpeg">
+
+        <img src="14.jpeg">
+
+        <img src="15.jpeg">
+
+        <img src="16.jpeg">
+
+        <img src="17.jpeg">
+
+        <img src="18.jpeg">
+
+        <img src="19.jpeg">
+
+        <img src="20.jpeg">
+
+        <img src="21.jpeg">
+
+        <img src="22.jpeg">
+
+        <img src="23.jpeg">
+        
+        <img src="end'.jpeg">
+
+        
+
+    </div>
+
+</section>
+
+<!-- FINAL SURPRISE -->
+<section class="final" id="surprise">
+
+    <h2>One Last Surprise! 💛</h2>
+
+    <p>
+        You are my favourite chapter
+        and my forever beautiful story.
+    </p>
+
+    <button onclick="showSurprise()">
+        Click For Your Surprise 🎁
+    </button>
+
+    <h2 id="finalMessage"
+    style="display:none; margin-top:30px;">
+
+        I LOVE YOU SO MUCH! ❤️
+
+        <br>
+
+        Happy Birthday, My Princess! 👑💛
+
+        <br>
+
+        </h2>
+
+        <h3>Second surprise will be soon </h3>
+
+    
+
+</section>
+
+<footer style="padding:30px;text-align:center;">
+    Made With Endless Love 💛
+</footer>
+
+</div>
+
+<script>
+
+// LOGIN CREDENTIALS
+const correctUsername = "my love";
+const correctPassword = "1234";
+
+function login() {
+
+    let user = document.getElementById("username")
+    .value.trim().toLowerCase();
+
+    let pass = document.getElementById("password")
+    .value;
+
+    if (
+        user === correctUsername &&
+        pass === correctPassword
+    ) {
+
+        document.getElementById("loginPage")
+        .style.display = "none";
+
+        document.getElementById("website")
+        .style.display = "block";
+
+        createHearts();
+
+    } else {
+
+        document.getElementById("error")
+        .innerText = "Wrong details! Try again 💛";
+
+    }
+
+}
+
+// FLOATING HEARTS
+function createHearts() {
+
+    setInterval(function() {
+
+        let heart = document.createElement("div");
+
+        heart.className = "heart";
+        heart.innerHTML = "💛";
+
+        heart.style.left =
+        Math.random() * 100 + "vw";
+
+        heart.style.animationDuration =
+        (4 + Math.random() * 4) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(function() {
+            heart.remove();
+        }, 8000);
+
+    }, 500);
+
+}
+
+// FINAL SURPRISE
+function showSurprise() {
+
+    document.getElementById("finalMessage")
+    .style.display = "block";
+
+}
+
+</script>
+
+</body>
+</html>
